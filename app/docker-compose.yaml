@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres
+    command: [
+      "postgres",
+      "-c", "logging_collector=off",
+    ]
+    environment:
+      - POSTGRES_DB="${DB_DATABASE_NAME}"
+      - POSTGRES_USER="${DB_USER}"
+      - POSTGRES_PASSWORD="${DB_PASS}"
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./db/:/var/lib/postgresql/data
+
+  backend:
+    image: backend
+    build:
+      context: backend
+    stop_signal: SIGKILL
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/attachments:/app/backend/attachments
+    depends_on:
+      - postgres
+  frontend:
+    image: frontend
+    build:
+      context: frontend
+    stop_signal: SIGKILL
+    ports:
+      - "80:80"
+    volumes:
+      - ./backend/attachments:/usr/share/nginx/html/static/attachments
+    depends_on:
+      - backend
+

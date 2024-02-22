@@ -1,0 +1,13 @@
+sqlalchemy~=2.0.25
+fastapi~=0.109.0
+uvicorn[standard]
+sqlalchemy[asyncio]
+greenlet
+pydantic
+httpx
+requests
+psycopg2
+python-dotenv
+Jinja2
+asyncpg
+python-multipart
