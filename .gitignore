@@ -1,0 +1,5 @@
+/.idea/
+/app/db/
+/app/backend/attachments/
+/app/.coverage
+/app/test.db
