@@ -12,7 +12,7 @@
 ### Запуск
 
 1. Клонируйте репозиторий
-   командой ```git clone https://gitlab.skillbox.ru/artem_surzhikov/python_advanced_diploma.git```
+   командой ```git clone https://github.com/Surzhikov161/MicroBlog.git```
 2. Установите [Docker](https://docs.docker.com/engine/install/), если у вас его нет;
 3. Настроить параметры окружения (DB_USER, DB_PASS, DB_DATABASE_NAME) в файле .env и DATABASE_URI в
    app/backend/Dockerfile;
